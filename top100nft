@@ -1,0 +1,16 @@
+-- Assuming you have a table named 'nft_projects' with columns: project_name, total_volume, total_sales, etc.
+
+SELECT 
+    project_name,
+    total_volume,
+    total_sales,
+    other_metrics
+FROM
+    nft_projects
+WHERE
+    -- Add any filtering or conditions to identify top-performing projects (e.g., based on total_volume, total_sales, etc.)
+    -- ORDER BY the metric you want to rank by in descending order
+    -- LIMIT to retrieve the top 100 rows
+ORDER BY
+    total_volume DESC
+LIMIT 100;

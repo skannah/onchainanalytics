@@ -1,0 +1,12 @@
+SELECT
+    a.account_id,
+    a.geolocation,
+    th.token_name,
+    th.token_balance
+FROM
+    accounts a
+JOIN
+    token_holdings th ON a.account_id = th.account_id
+WHERE
+    th.token_name = 'XYZ' -- Replace 'XYZ' with the name of the token you want to filter
+    AND a.geolocation = 'your_geolocation' -- Replace 'your_geolocation' with the specific geolocation you want to filter

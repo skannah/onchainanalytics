@@ -1,0 +1,24 @@
+-- Assuming there is a table called 'gamefi_wallets' in the database with relevant data
+
+-- Step 1: Connect to the database (replace 'your_database' with your actual database name)
+USE your_database;
+
+-- Step 2: Fetch the number of wallets
+SELECT COUNT(*) AS num_wallets
+FROM gamefi_wallets;
+
+-- Step 3: Fetch the total transaction volume
+SELECT SUM(transaction_volume) AS total_volume
+FROM gamefi_wallets;
+
+-- Step 4: Fetch the average wallet size
+SELECT AVG(wallet_size) AS avg_wallet_size
+FROM gamefi_wallets;
+
+-- Step 5: Fetch other variables (add or modify these queries based on your data and requirements)
+SELECT
+    MAX(wallet_size) AS max_wallet_size,
+    MIN(wallet_size) AS min_wallet_size,
+    SUM(total_holding) AS total_holding,
+    AVG(transaction_value) AS avg_transaction_value
+FROM gamefi_wallets;

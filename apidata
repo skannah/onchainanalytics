@@ -1,0 +1,32 @@
+import requests
+
+def get_crypto_data(api_url, params=None):
+    try:
+        response = requests.get(api_url, params=params)
+        response.raise_for_status()  # Check for errors
+        data = response.json()
+        return data
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
+        return None
+
+# Example usage:
+if __name__ == "__main__":
+    # Replace this URL with the endpoint of the specific crypto market API you want to use.
+    api_url = "https://api.coingecko.com/api/v3/coins/bitcoin"
+
+    # Parameters (if needed)
+    params = {
+        "localization": False,
+        "tickers": False,
+        "community_data": False,
+        "developer_data": False
+    }
+
+    crypto_data = get_crypto_data(api_url, params)
+    if crypto_data:
+        # Process the retrieved data as per your requirement
+        print("Crypto Data:")
+        print(crypto_data)
+    else:
+        print("Failed to fetch crypto data. Please check your internet connection or API URL.")
